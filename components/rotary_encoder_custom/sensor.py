@@ -34,8 +34,8 @@ CONFIG_SCHEMA = (
         {
             cv.Required(CONF_PIN_A): pins.gpio_input_pin_schema,
             cv.Required(CONF_PIN_B): pins.gpio_input_pin_schema,
-            cv.Optional(CONF_MIN_VALUE, default=0): cv.int,
-            cv.Optional(CONF_MAX_VALUE, default=255): cv.int,
+            cv.Optional(CONF_MIN_VALUE, default=0): cv.int_range(0, 65536),
+            cv.Optional(CONF_MAX_VALUE, default=255): cv.int_range(0, 65536),
             cv.Optional(CONF_PUBLISH_INITIAL_VALUE, default=False): cv.boolean,
         }
     )

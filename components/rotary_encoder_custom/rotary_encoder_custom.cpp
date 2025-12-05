@@ -48,12 +48,12 @@ void RotaryEncoderCustom::process_channel(bool current, bool &prev,
       debounce_cnt = 0;
       counter_ += clockwise ? 1 : -1;
       ESP_LOGD(TAG, "%s step, counter=%d, min=%d, max=%d",
-               clockwise ? "👉 CW" : "👈 CCW", counter_, min_val_, max_val_);
-      if (counter_ < min_val_) {
-        counter_ = min_val_;
+               clockwise ? "👉 CW" : "👈 CCW", counter_, this->min_value_, this->max_value_);
+      if (counter_ < this->min_value_) {
+        counter_ = this->min_value_;
       }
-      if (counter_ > max_val_) {
-        counter_ = max_val_;
+      if (counter_ > this->max_value_) {
+        counter_ = this->max_value_;
       }
       ESP_LOGD(TAG, "%s step, counter=%d",
                clockwise ? "👉 CW" : "👈 CCW", counter_);
