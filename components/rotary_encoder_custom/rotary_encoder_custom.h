@@ -8,7 +8,7 @@ namespace esphome {
 namespace rotary_encoder_custom {
 
 // If you still miss steps at high speed, raise this to 6 or 7
-static constexpr uint8_t DEBOUNCE_TICKS = 5;
+static constexpr uint8_t DEBOUNCE_TICKS = 7;
 
 class RotaryEncoderCustom : public Component, public sensor::Sensor {
  public:
