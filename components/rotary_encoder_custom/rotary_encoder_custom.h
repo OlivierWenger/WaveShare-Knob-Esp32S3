@@ -27,9 +27,9 @@ class RotaryEncoderCustom : public Component, public sensor::Sensor {
  protected:
   GPIOPin *pin_a_;
   GPIOPin *pin_b_;
-  int *min_value;
-  int *max_value;
-  
+  int *min_value_;
+  int *max_value_;
+
   bool publish_initial_value_{false};
 
   int32_t counter_{0};
