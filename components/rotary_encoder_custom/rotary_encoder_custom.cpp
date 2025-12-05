@@ -47,8 +47,8 @@ void RotaryEncoderCustom::process_channel(bool current, bool &prev,
     if (current != prev && ++debounce_cnt >= DEBOUNCE_TICKS) {
       debounce_cnt = 0;
       counter_ += clockwise ? 1 : -1;
-      ESP_LOGD(TAG, "%s step, counter=%d",
-               clockwise ? "👉 CW" : "👈 CCW", counter_);
+      //ESP_LOGD(TAG, "%s step, counter=%d",
+      //         clockwise ? "👉 CW" : "👈 CCW", counter_);
       this->publish_state(counter_);
     } else {
       debounce_cnt = 0;
