@@ -47,14 +47,16 @@ void RotaryEncoderCustom::process_channel(bool current, bool &prev,
     if (current != prev && ++debounce_cnt >= DEBOUNCE_TICKS) {
       debounce_cnt = 0;
       counter_ += clockwise ? 1 : -1;
-      if (counter_ < min_val) {
-        counter_ = min_val;
+      ESP_LOGD(TAG, "%s step, counter=%d, min=%d, max=%d",
+               clockwise ? "👉 CW" : "👈 CCW", counter_, min_val_, max_val_);
+      if (counter_ < min_val_) {
+        counter_ = min_val_;
       }
-      if (counter_ > max_val) {
-        counter_ = max_val;
+      if (counter_ > max_val_) {
+        counter_ = max_val_;
       }
-      //ESP_LOGD(TAG, "%s step, counter=%d",
-      //         clockwise ? "👉 CW" : "👈 CCW", counter_);
+      ESP_LOGD(TAG, "%s step, counter=%d",
+               clockwise ? "👉 CW" : "👈 CCW", counter_);
       this->publish_state(counter_);
     } else {
       debounce_cnt = 0;
