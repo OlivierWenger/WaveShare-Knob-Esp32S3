@@ -15,8 +15,8 @@ class RotaryEncoderCustom : public Component, public sensor::Sensor {
   // These take the pointer types that esphome::gpio_pin_expression returns
   void set_pin_a(GPIOPin *pin_a) { this->pin_a_ = pin_a; }
   void set_pin_b(GPIOPin *pin_b) { this->pin_b_ = pin_b; }
-  void set_min_value(int *min_value) {min_val = min_value;}
-  void set_max_value(int *max_value) {max_val = max_value;}
+  void set_min_value(int *min_value) {min_val = *min_value;}
+  void set_max_value(int *max_value) {max_val = *max_value;}
   
   void set_publish_initial_value(bool v) { this->publish_initial_value_ = v; }
 
