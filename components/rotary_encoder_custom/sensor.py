@@ -18,6 +18,8 @@ RotaryEncoderCustom = rotary_encoder_custom_ns.class_(
 # 2) Configuration schema
 CONF_PIN_A = "pin_a"
 CONF_PIN_B = "pin_b"
+CONF_MAX_VALUE = "max_value"
+CONF_MIN_VALUE = "min_value"
 CONF_PUBLISH_INITIAL_VALUE = "publish_initial_value"
 
 CONFIG_SCHEMA = (
@@ -32,6 +34,8 @@ CONFIG_SCHEMA = (
         {
             cv.Required(CONF_PIN_A): pins.gpio_input_pin_schema,
             cv.Required(CONF_PIN_B): pins.gpio_input_pin_schema,
+            cv.Optional(CONF_MIN_VALUE, default=0): cv.int_,
+            cv.Optional(CONF_MAX_VALUE, default=255): cv.int_,
             cv.Optional(CONF_PUBLISH_INITIAL_VALUE, default=False): cv.boolean,
         }
     )
